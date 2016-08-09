@@ -20,4 +20,4 @@ io.on('connection', (socket)=>{
 
 setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
 
-setInterval(()=> io.emit('command',  'hello!'),5000);
+setInterval(()=> io.emit('command',  ['one', 'two']),5000);
