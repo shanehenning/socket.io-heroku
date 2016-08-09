@@ -13,7 +13,7 @@ const server = express()
 
 const io = socketIO(server);
 
-console.log(io);
+console.log('io: ', io);
 
 io.on('connection', (socket)=>{
   console.log('Client connected');
