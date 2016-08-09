@@ -19,3 +19,7 @@ io.on('connection', (socket)=>{
 });
 
 setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
+
+setInterval(()=> io.emit('command', (req,res)=>{
+  res.json({'msg':'hello!'});
+}), 5000);
