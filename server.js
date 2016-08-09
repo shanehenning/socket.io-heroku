@@ -20,6 +20,7 @@ io.on('connection', (socket)=>{
 
 setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
 
-setInterval(()=> io.emit('command', (req,res)=>{
-  res.json({'msg':'hello!'});
+setInterval(()=> io.emit('command', ()=>{
+  var arr = [1,2];
+  return arr;
 }), 5000);
