@@ -1,25 +1,3 @@
-'use strict';
+const app = require('./_server.js');
 
-const express = require('express');
-const socketIO = require('socket.io');
-const path = require('path');
-
-const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname, 'index.html');
-
-const server = express()
-.use((req,res)=> res.sendFile(INDEX))
-.listen(PORT, () => console.log('Listening on ${PORT}'));
-
-const io = socketIO(server);
-
-console.log('io: ', io);
-
-io.on('connection', (socket)=>{
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
-});
-
-setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
-
-setInterval(()=> io.emit('command',  ['James is awesome', 'app.js']),5000);
+app.listen(3000, () => console.log('server up on 3000'));
