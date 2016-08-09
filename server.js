@@ -22,5 +22,5 @@ setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
 
 setInterval(()=> io.emit('command', function(socket){
   var data = 'hi';
-  socket.write(data);
+  socket.write(data.toString());
 }), 5000);
