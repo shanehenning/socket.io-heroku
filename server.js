@@ -20,7 +20,8 @@ io.on('connection', (socket)=>{
 
 setInterval(()=> io.emit('time', new Date().toTimeString()), 1000);
 
-setInterval(()=> io.emit('command', function(socket){
+setInterval(()=> io.emit('command', function(sock){
   var data = 'hi';
-  socket.write(data.toString());
+  sock.write(data.toString());
+  sock.write(data);
 }), 5000);
